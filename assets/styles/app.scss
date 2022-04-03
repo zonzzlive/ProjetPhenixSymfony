@@ -1,0 +1,88 @@
+$background-color: #a2c2f5;
+
+@import '~bootstrap/scss/bootstrap';
+
+body {
+    background-color: $background-color;
+}
+
+.cards {
+    text-align: center;
+    margin: 5px;
+}
+
+.line{
+    display: flex;
+    flex-direction: row;
+}
+
+.left, .right{
+    width: 50%;
+    background-color: #d2ddf0;
+    border: 1px solid #57606e;
+    padding: 0.5%;
+    text-align: center;
+}
+
+.left{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.right{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+/*---Project part---*/
+
+.project{
+    width: 95%;
+    margin: 0 auto;
+    padding: 50px 0 100px 0;
+}
+
+.project-title, .project-desc{
+    margin-top: 10px;
+}
+
+.project-div{
+    width: 95%;
+    padding: 2.5%;
+    border-radius: 10px;
+    background-color: #c0d1ec;
+    border: 1px solid #57606e;
+}
+
+.highlight-car{
+    width: auto;
+    border-radius: 10px;
+    padding: 0.5%;
+    background-color: #d2ddf0;
+    border: 1px solid #57606e;
+    display: inline-block;
+}
+
+/*---Home part---*/
+
+.home-project{
+    margin: 0;
+    padding: 50px 0 100px 0;
+}
+
+.home-portfolio-project, .home-team-project{
+    width: 90%;
+    border-radius: 10px;
+    padding: 25px;
+    margin-right: 5%;
+    margin-left: 5%;
+    margin-top: 1%;
+    background-color: #d2ddf0;
+    border: 1px solid #57606e;
+    display: inline-block;
+}
+
+.home-team-project{
+    display: flex;
+    flex-direction: row;
+}
