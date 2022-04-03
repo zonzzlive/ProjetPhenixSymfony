@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+
+    <div class="home-project">
+        <div class="home-portfolio-project">
+            <h2>Project from portfolio :</h2>
+            {% for project in projects %}    
+                <div>
+                    {{project.name}}
+                    <a href="{{path('project_show', {id:project.id})}}" class="btn btn-primary">Open project</a>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="home-team-project">
+            <div class="left">
+                <h2>Team Project : </h2>
+                {% for teamProject in teamProjects[0] %}
+                    <div class="">
+                        {{teamProject.teamProject.name}} project's : {{teamProject.name}}
+                        <a href="{{path('project_show', {id:teamProject.id})}}" class="btn btn-primary">Open project</a>  
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="right">
+                <h2>Team Customer : </h2>
+                {% for teamCustomer in teamCustomers[0] %}
+                    <div class="">
+                        {{teamCustomer.clientTeam.name}} project's : {{teamCustomer.name}}
+                        <a href="{{path('project_show', {id:teamCustomer.id})}}" class="btn btn-primary">Open project</a>  
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
