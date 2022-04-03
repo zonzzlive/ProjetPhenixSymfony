@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Highlight{% endblock %}
+
+{% block body %}
+    <h1>Edit Highlight</h1>
+
+    {{ include('highlight/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('highlight_index') }}">back to list</a>
+
+    {{ include('highlight/_delete_form.html.twig') }}
+{% endblock %}

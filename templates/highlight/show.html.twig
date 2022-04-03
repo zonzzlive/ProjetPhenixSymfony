@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Highlight{% endblock %}
+
+{% block body %}
+    <h1>Highlight</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ highlight.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ highlight.date ? highlight.date|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ highlight.name }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ highlight.description }}</td>
+            </tr>
+            <tr>
+                <th>Project</th>
+                <td>{{ highlight.project.id }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('highlight_index') }}">back to list</a>
+
+    <a href="{{ path('highlight_edit', {'id': highlight.id}) }}">edit</a>
+
+    {{ include('highlight/_delete_form.html.twig') }}
+{% endblock %}
