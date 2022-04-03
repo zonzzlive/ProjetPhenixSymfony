@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project{% endblock %}
+
+{% block body %}
+
+<div class="example-wrapper">
+
+    <div class="project">
+
+        <h1>My project : {{ projects|length }}</h1>
+
+        <a href='{{path('project_new')}}' class="btn btn-primary"> New Project </a>
+    
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Code</th>
+                    <th scope="col">Project</th>
+                    <th scope="col">Statut</th>
+                    <th scope="col">Project Team</th>
+                    <th scope="col">Resp CP</th>
+                    <th scope="col">Customer Team</th>
+                    <th scope="col">Resp CT</th>
+                    <th scope="col">Start date</th>
+                    <th scope="col">End date</th>
+                    <th scope="col">Show</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for project in projects %}    
+                    <tr>
+                    <td>{{project.code}}</td>
+                    <td>{{project.name}}</td>
+                    <td>{{project.status.nameStatus}}</td>
+                    <td>{{project.teamProject.name}}</td>
+                    <td>{{project.teamProject.teamLeader.firstName}} {{project.teamProject.teamLeader.lastName}}</td>
+                    <td>{{project.clientTeam.name}}</td>
+                    <td>{{project.clientTeam.teamLeader.firstName}} {{project.clientTeam.teamLeader.lastName}}</td>
+                    <td>{{project.createdAt|date('Y-m-d')}}</td>
+                    <td>{{project.endedAt|date('Y-m-d')}}</td>
+                    <td><a href="{{path('project_show', {id:project.id})}}" class="btn btn-primary">Show project</a></td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}

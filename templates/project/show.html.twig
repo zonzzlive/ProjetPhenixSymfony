@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProjectController!{% endblock %}
+
+{% block body %}
+<div class="project">
+    <div class="project-div">
+        <div class="project-title">
+            <h1 class="my-project" data-project-id="{{project.id}}"> {{project.name}} </h1>
+        </div>
+        <div class="project-desc">    
+            {{project.description}}
+        </div>
+        <div class="line">
+            <div class="left">
+                <h2>Highlights</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date</th>
+                    </thead>
+                    <tbody>
+                        {% for highlight in highlights %}                    <tr>
+                                <td> {{highlight.name}} </td>
+                                <td> {{highlight.date|date('Y-m-d')}} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="right">
+                <h2>Milestones</h2>
+                <table class="table table-striped">
+                    <thead>
+                        <th scope="col">Name</th>
+                        <th scope="col">Date</th>
+                    </thead>
+                    <tbody>
+                        {% for highlight in highlights %}                    <tr>
+                                <td> {{highlight.name}} </td>
+                                <td> {{highlight.date|date('Y-m-d')}} </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <a href='{{path('app_homepage')}}' type="button" class="btn btn-primary"> Project </a>
+    <a href='{{path('project_edit', {'id' : project.id})}}' type="button" class="btn btn-warning"> Update </a>
+    {{ include('project/_delete_form.html.twig') }}
+</div>
+
+{% endblock %}
