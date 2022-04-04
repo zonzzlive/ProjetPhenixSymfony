@@ -8,7 +8,6 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\ProjectRepository;
 use App\Repository\PortfolioRepository;
 use App\Repository\TeamMembreRepository;
-use Symfony\Component\Validator\Constraints\Length;
 
 class HomeController extends AbstractController
 {
@@ -35,26 +34,11 @@ class HomeController extends AbstractController
                 array_push($datArray['teamCustomers'], $projectRepository->findBy(["clientTeam" => $teamMembre[$x]->getTeam()]));
             }
         }
-        //dd($datArray);
-
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        return $this->render('home/index.html.twig', $datArray
-            
-            
-            //dd($user),
-            //dd($projectRepository->findBy(["TeamProject" => $teamMembreRepository->findBy(["user" => $idUser])])),
-            //dd($projectRepository->findBy(["clientTeam" => $teamMembreRepository->findBy(["user" => $idUser])])),
-            //dd($teamMembreRepository->findBy(["user" => $idUser])),
-            //dd($projectRepository->findBy(["clientTeam" => $teamMembre])),
-            //dd($teamMembre->getTeam()),
-            //dd($teamMembre->getId()),
-            //dd($idPortfolio),
-        );
+        return $this->render('home/index.html.twig', $datArray);
     }
 
     public function ifTeamMembreTrue(ProjectRepository $projectRepository,){
-
-        
 
         return;
     }
