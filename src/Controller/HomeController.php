@@ -15,6 +15,9 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_homepage')]
     public function index(ProjectRepository $projectRepository, PortfolioRepository $portfolioRepository, TeamMembreRepository $teamMembreRepository): Response
     {
+        if (!$this->getUser()){
+            return $this->redirectToRoute('app_register');
+        }
         $datArray = [
             'controller_name' => 'HomeController',
             $user = $this->getUser(),

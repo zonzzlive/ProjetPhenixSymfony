@@ -14,14 +14,15 @@
         {% endblock %}
     </head>
     <body>
-        <a href='{{path('app_homepage')}}' class="btn btn-dark"> Phénix </a>
-        <a href='{{path('app_project')}}' class="btn btn-primary"> Project </a>
         {% if (is_granted('IS_AUTHENTICATED_FULLY')) %}
+            <a href='{{path('app_homepage')}}' class="btn btn-dark"> Phénix </a>
+            <a href='{{path('app_project')}}' class="btn btn-primary"> Project </a>
             <a href='{{path('app_logout')}}' type="button" class="btn btn-danger"> Log out </a>
             {% if (is_granted('ROLE_ADMIN'))%}
                 <a href='{{path('admin')}}' class="btn btn-primary"> Admin </a>
             {% endif %}
         {% else %}
+            {% set url = path(app.request.attributes.get('_route')) %}
             <a href='{{path('app_register')}}' type="button" class="btn btn-success"> Sign up </a>
             <a href='{{path('app_login')}}' type="button" class="btn btn-outline-success"> Log in </a>
         {% endif %}
